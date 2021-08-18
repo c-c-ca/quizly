@@ -7,15 +7,15 @@ export interface Question {
   answer: string;
 }
 
-export interface QuestionAction {
+export interface QuestionsAction {
   type: string;
-  payload: Question | null;
+  payload: Question[] | null;
 }
 
 export const QuestionReducer = (
-  state: Question | null = null,
-  action: QuestionAction
-): Question | null => {
+  state: Question[] | null = null,
+  action: QuestionsAction
+): Question[] | null => {
   switch (action.type) {
     case QUESTION_TYPE:
       return action.payload;
