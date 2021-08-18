@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./QuestionDisplay.scss";
 import { AppState } from "../store/AppState";
 import { Question, QUESTION_TYPE } from "../store/questions/Reducer";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,18 +51,21 @@ function QuestionDisplay() {
   };
 
   const renderChoices = (choices: string[]): JSX.Element => (
-    <div>
+    <div className="question-display__selection">
       {choices.map(
         (choice: string, index: number): JSX.Element => (
-          <div key={index}>
+          <div key={index} className="question-display__choice-container">
             <input
+              className="questionh-display__choice"
               type="radio"
               id={choice}
               name={`question${questionIndex}`}
               checked={index === selectedChoices[questionIndex]}
               onChange={() => onClickChoice(index)}
             />
-            <label htmlFor={choice}>{choice}</label>
+            <label className="question-display__choice-label" htmlFor={choice}>
+              {choice}
+            </label>
           </div>
         )
       )}
@@ -70,16 +74,28 @@ function QuestionDisplay() {
 
   const renderQuestion = ({ text, choices }: Question): JSX.Element => (
     <div>
-      <p>{text}</p>
+      <p className="question-display__text">{text}</p>
       {renderChoices(choices)}
     </div>
   );
 
   return questions ? (
-    <div>
+    <div className="question-display">
       {renderQuestion(questions[questionIndex])}
-      <button onClick={onClickPreviousQuestion}>Previous</button>
-      <button onClick={onClickNextQuestion}>Next</button>
+      <div className="question-display__button-container">
+        <button
+          className="question-display__button"
+          onClick={onClickPreviousQuestion}
+        >
+          Previous
+        </button>
+        <button
+          className="question-display__button"
+          onClick={onClickNextQuestion}
+        >
+          Next
+        </button>
+      </div>
     </div>
   ) : null;
 }

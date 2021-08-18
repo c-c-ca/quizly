@@ -1,0 +1,29 @@
+.question-display {
+  margin: 0 auto;
+  max-width: 50rem;
+
+  &__text {
+    font-size: 1.9rem;
+  }
+
+  &__selection {
+    font-size: 1.6rem;
+  }
+
+  &__choice-container {
+  }
+
+  &__choice {
+  }
+
+  &__choice-label {
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+  }
+}
