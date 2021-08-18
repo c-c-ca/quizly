@@ -7,14 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 const BASE_URL = "http://localhost:5000";
 
 function QuestionDisplay() {
+  const questions = useSelector((state: AppState) => state.questions);
+  const dispatch = useDispatch();
+
   // Index of the current question
   const [questionIndex, setQuestionIndex] = useState<number>(0);
 
   // Indices of the choices for each question selected by the user
   const [selectedChoices, setSelectedChoices] = useState<number[]>([]);
-
-  const questions = useSelector((state: AppState) => state.questions);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     (async function fetchQuestion() {
