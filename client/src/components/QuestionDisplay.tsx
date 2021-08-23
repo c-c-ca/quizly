@@ -4,6 +4,7 @@ import "./QuestionDisplay.scss";
 import { AppState } from "../store/AppState";
 import { Question, QUESTION_TYPE } from "../store/questions/Reducer";
 import { useDispatch, useSelector } from "react-redux";
+import { TiArrowLeftThick, TiArrowRightThick } from "react-icons/ti";
 
 const BASE_URL = "http://localhost:5000";
 
@@ -87,13 +88,13 @@ function QuestionDisplay() {
           className="question-display__button"
           onClick={onClickPreviousQuestion}
         >
-          Previous
+          <h1><TiArrowLeftThick/></h1>
         </button>
         <button
           className="question-display__button"
           onClick={onClickNextQuestion}
-        >
-          Next
+          >
+          <h1><TiArrowRightThick/></h1>
         </button>
       </div>
     </div>

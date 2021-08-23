@@ -1,29 +1,83 @@
 .question-display {
   margin: 0 auto;
-  max-width: 50rem;
+  max-width: 90rem;
+  position: relative;
+  border-radius: 2rem;
+  box-shadow: -1rem 1rem 15px 1px rgba(0, 0, 0, 0.4),
+    inset 0 0 12px 4px rgba(0, 0, 0, 0.4);
+  background-color: rgba(138, 138, 138, 0.24);
+
+  &:hover {
+    transition: all 1s ease-in-out;
+    transform: scale(1.02);
+    transform-style: preserve-3d;
+    box-shadow: -1rem 1rem 150px 1px rgba(0, 0, 0, 0.4),
+      inset 0 0 12px 8px rgba(0, 0, 0, 0.4);
+    background-color: rgba(138, 138, 138, 0.34);
+    transform: rotateY(180deg);
+  }
+
 
   &__text {
-    font-size: 1.9rem;
+    margin-top: 5rem;
+    font-size: 3.2rem;
+    text-align: center;
+    color: #0a0a0a93;
   }
 
   &__selection {
-    font-size: 1.6rem;
+    font-size: 2.4rem;
   }
 
   &__choice-container {
+    margin: 3rem;
   }
 
   &__choice {
   }
 
   &__choice-label {
+    margin: 3rem;
+    outline: none;
   }
 
   &__button-container {
     display: flex;
     justify-content: center;
+    margin: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  @mixin button-bg($bg) {
+    background: $bg;
+    &:hover {
+      background: darken($bg, 4%);
+      transition: all 0.3s ease;
+      outline: none;
+    }
   }
 
   &__button {
+    @include button-bg(#8f8f8f25);
+    background: transparent;
+    outline: none;
+    margin: 5rem;
+    min-width: 10rem;
+    height: 4rem;
+    border: none;
+    outline: none;
+    border-radius: 4rem;
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 2px 1px #0a0a0a;
+  }
+
+  * {
+    &:no-button {
+      outline: 0 !important;
+    }
   }
 }
+
+
